@@ -7,3 +7,4 @@ EXPOSE 80
 COPY ./explore_california/. ./var/www/html/
 #
 #
+CMD ["service","apache2","start"]
