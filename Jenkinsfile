@@ -1,13 +1,13 @@
 #!groovy
 node {
   stage 'Checkout'
-  git 'ssh://git@github.com:irwin-tech/docker-pipeline-demo.git'
+  git 'https://github.com/jayabalan1992/jai-psa'
  
   stage 'Docker build'
-  docker.build('demo')
+  docker.build('Dockerfile')
  
   stage 'Docker push'
-  docker.withRegistry('https://1234567890.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:demo-ecr-credentials') {
-    docker.image('demo').push('latest')
+  docker.withRegistry('https://hub.docker.com/r/jayabalan/jenkinsauto/', 'githubcredentials') {
+    docker.image('Dockerfile').push('latest')
   }
 }
