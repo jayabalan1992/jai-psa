@@ -6,8 +6,9 @@ node {
   stage 'Docker build'
   def image = docker.build('jayabalan/jenkinsauto:latest')
  
-  stage 'Docker push'
-  withDockerRegistry([credentialsId: 'Dockerhub', url: 'https://registry.hub.docker.com']) {
-    image.push()
-  }
+
+  docker.withRegistry("https://registry.hub.docker.com", "Dockerhub") {
+        image.push()
+    }
+}
 }
