@@ -7,7 +7,7 @@ node {
   docker.build('jayabalan/jenkinsauto:latest')
  
   stage 'Docker push'
-  withDockerRegistry([credentialsId: 'githubcredentials', url: 'https://hub.docker.com/r/jayabalan/jenkinsauto/']) {
+  withDockerRegistry([credentialsId: 'Dockerhub', url: 'https://hub.docker.com/r/jayabalan/jenkinsauto/']) {
     docker.image('Dockerfile').push('latest')
   }
 }
