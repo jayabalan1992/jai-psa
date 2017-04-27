@@ -10,5 +10,5 @@ node {
   docker.withRegistry("https://registry.hub.docker.com", "Dockerhub") {
         image.push()
     }
-}
+
 }
