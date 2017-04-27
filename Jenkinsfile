@@ -8,6 +8,6 @@ node {
  
   stage 'Docker push'
   withDockerRegistry([credentialsId: 'Dockerhub', url: 'https://hub.docker.com/r/jayabalan/jenkinsauto/']) {
-    docker.image('Dockerfile').push('latest')
+    docker.image('jayabalan/jenkinsauto:latest').push('latest')
   }
 }
