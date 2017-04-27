@@ -4,7 +4,7 @@ node {
   git 'https://github.com/jayabalan1992/jai-psa'
  
   stage 'Docker build'
-  docker.build('Dockerfile:latest')
+  docker.build('jayabalan/jenkinsauto:latest')
  
   stage 'Docker push'
   withDockerRegistry([credentialsId: 'githubcredentials', url: 'https://hub.docker.com/r/jayabalan/jenkinsauto/']) {
