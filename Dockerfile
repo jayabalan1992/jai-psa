@@ -1,10 +1,4 @@
-FROM centos:latest
-MAINTAINER jayabalan.com
-
-RUN yum update && yum install -y httpd
-
-ADD index.html /var/www/html
-
-EXPOSE 80
-
-CMD ["/usr/sbin/httpd","-D',"FOREGROUND"]
+FROM alpine
+MAINTAINER jayabalan@gmail.com
+COPY ./test.sh /usr/home/test.sh
+CMD ["/usr/home/test.sh"]
