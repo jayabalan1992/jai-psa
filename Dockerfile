@@ -1,10 +1,10 @@
-FROM ubuntu:14.04
-#
-RUN apt-get update && apt-get install apache2 -y
+FROM centos:latest
+MAINTAINER jayabalan.com
+
+RUN yum update && yum install -y httpd
+
+ADD index.html /var/www/html
 
 EXPOSE 80
 
-COPY ./explore_california/. ./var/www/html/
-#
-#
-CMD ["service","apache2","start"]
+CMD ["/usr/sbin/httpd","-D',"FOREGROUND"]
